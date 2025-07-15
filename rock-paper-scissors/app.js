@@ -1,14 +1,16 @@
 const computerChoiseDisplay = document.getElementById('computer-choice')
 const userChoiceDisplay = document.getElementById('user-choice')
-const resultDisplay = document.getAnimations('result')
+const resultDisplay = document.getElementById('result')
 const posssibleChoices = document.querySelectorAll('button')
 let userChoice
 let computerChoice
+let result
 
 posssibleChoices.forEach(posssibleChoice => posssibleChoice.addEventListener('click', (e) => {
     userChoice= e.target.id
     userChoiceDisplay.innerHTML = userChoice
     generateComputerChoice()
+    getResult()
 }))
 
     function generateComputerChoice() {
@@ -27,4 +29,36 @@ posssibleChoices.forEach(posssibleChoice => posssibleChoice.addEventListener('cl
         }
         
         computerChoiseDisplay.innerHTML = computerChoice
+    }
+
+    function getResult(){
+        if (computerChoice === userChoice){
+            result = 'Tie'
+        }
+
+        if (computerChoice === 'rock' && userChoice === 'scissors'){
+            result = 'You LOST!!'
+        }
+
+        if (computerChoice === 'paper' && userChoice === 'rock'){
+            result = 'You LOST!!'
+        }
+
+        if (computerChoice === 'scissors' && userChoice === 'paper'){
+            result = 'You LOST!!'
+        }
+
+        if (computerChoice === 'rock' && userChoice === 'paper'){
+            result = 'You WIN!!'
+        }
+
+        if (computerChoice === 'paper' && userChoice === 'scissors'){
+            result = 'You WIN!!'
+        }
+        
+        if (computerChoice === 'scissors' && userChoice === 'rock'){
+            result = 'You WIN!!'
+        }
+
+        resultDisplay.innerHTML = result
     }
