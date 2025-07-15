@@ -1,4 +1,5 @@
-const computerChoiseDisplay = document.getElementById('computer-choice')
+//at first the result would not display. My [const resultDisplay] had inccorect method (document.getAnimations) and needed to be document.getElementById
+const computerChoiceDisplay = document.getElementById('computer-choice')
 const userChoiceDisplay = document.getElementById('user-choice')
 const resultDisplay = document.getElementById('result')
 const posssibleChoices = document.querySelectorAll('button')
@@ -28,7 +29,7 @@ posssibleChoices.forEach(posssibleChoice => posssibleChoice.addEventListener('cl
             computerChoice = 'scissors'
         }
         
-        computerChoiseDisplay.innerHTML = computerChoice
+        computerChoiceDisplay.innerHTML = computerChoice
     }
 
     function getResult(){
